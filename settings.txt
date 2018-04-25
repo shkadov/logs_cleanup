@@ -1,0 +1,3 @@
+[vars]
+folder = '/test/test'
+old_date = 2

@@ -2,10 +2,14 @@ import zipfile
 import os
 import fnmatch
 import time
-import config
+import ConfigParser
 
-old_date       = config.old_date                  # Get min files age
-file_path      = config.folder                    # Get logs folder
+settings_file = ConfigParser.ConfigParser()
+settings_file.read('settings.txt')
+
+old_date = settings_file.get('vars', 'old_date')
+file_path = settings_file.get('vars', 'folder')
+
 current_time   = time.time()                      # Get current time
 
 
