@@ -2,9 +2,10 @@ import zipfile
 import os
 import fnmatch
 import time
+import config
 
 old_date       = 1                                # Get min files age
-file_path      = ''                                 # Get logs folder
+file_path      = config.folder                             # Get logs folder
 current_time   = time.time()                        # Get current time
 
 
