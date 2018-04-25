@@ -3,15 +3,11 @@ import os
 import fnmatch
 import time
 
-old_date       = 30                                 # Get min files age
-file_path      = ''                                 # Get logs folder
+old_date       = 1                                # Get min files age
+file_path      = '/Users/den/Desktop/Whois_cache'                                 # Get logs folder
 current_time   = time.time()                        # Get current time
 
-
-if not file_path:
-    print("Folder is not exist")
-
-
+'''
 try:
     import zlib
     compression = zipfile.ZIP_DEFLATED
@@ -21,7 +17,7 @@ except:
 modes = { zipfile.ZIP_DEFLATED: 'deflated',
           zipfile.ZIP_STORED: 'stored',
           }
-
+'''
 # Zipping log files function
 def zipping_file(file_path):
     #global old_date, file_path, current_time
