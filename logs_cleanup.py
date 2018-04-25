@@ -4,10 +4,10 @@ import fnmatch
 import time
 
 old_date       = 1                                # Get min files age
-file_path      = '/Users/den/Desktop/Whois_cache'                                 # Get logs folder
+file_path      = ''                                 # Get logs folder
 current_time   = time.time()                        # Get current time
 
-'''
+
 try:
     import zlib
     compression = zipfile.ZIP_DEFLATED
@@ -17,7 +17,7 @@ except:
 modes = { zipfile.ZIP_DEFLATED: 'deflated',
           zipfile.ZIP_STORED: 'stored',
           }
-'''
+
 # Zipping log files function
 def zipping_file(file_path):
     #global old_date, file_path, current_time
@@ -31,7 +31,7 @@ def zipping_file(file_path):
                     if file_age > old_date:
                         zipfilename = file_name + '.zip'
                         file_zip = zipfile.ZipFile(zipfilename, 'w')
-                        file_zip.write(file_name)
+                        file_zip.write(file_name, compress_type=compression)
                         file_zip.close()
                         os.remove(file_name)
 
