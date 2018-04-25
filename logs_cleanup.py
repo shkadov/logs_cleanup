@@ -4,9 +4,9 @@ import fnmatch
 import time
 import config
 
-old_date       = 1                                # Get min files age
-file_path      = config.folder                             # Get logs folder
-current_time   = time.time()                        # Get current time
+old_date       = config.old_date                  # Get min files age
+file_path      = config.folder                    # Get logs folder
+current_time   = time.time()                      # Get current time
 
 
 try:
@@ -49,5 +49,9 @@ def folder_exist(file_path):
         print ("Folder is not exist")
         return
 
-folder_exist(file_path)
-zipping_file(file_path)
+def main():
+    folder_exist(file_path)
+    zipping_file(file_path)
+
+if __name__ == "__main__":
+    main()
