@@ -50,8 +50,8 @@ def zipping_file(file_path):
 def folder_exist(file_path):
     try:
         os.stat(file_path)
-    except Exception:
-        print ("Folder is not exist")
+    except Exception as e:
+        logging.error(str(e))
         return
 
 def job_log():
