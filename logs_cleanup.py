@@ -3,6 +3,7 @@ import os
 import fnmatch
 import time
 import ConfigParser
+import logging
 
 settings_file = ConfigParser.ConfigParser()
 settings_file.read('settings.txt')
@@ -42,8 +43,8 @@ def zipping_file(file_path):
 
 
 
-    except Exception:
-        print("Error")
+    except BaseException as e:
+        logging.error(str(e))
 
 # Check if folder exists
 def folder_exist(file_path):
@@ -52,6 +53,9 @@ def folder_exist(file_path):
     except Exception:
         print ("Folder is not exist")
         return
+
+def job_log():
+    print("There will be jobs log writer")
 
 def main():
     folder_exist(file_path)
