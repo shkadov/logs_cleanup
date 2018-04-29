@@ -1,3 +1,4 @@
 [vars]
-folder = /Users/den/Desktop/Whois_cache
+folder =
 old_date = 0 # there should be day's amount
+logfile =
