@@ -7,7 +7,7 @@ import logging
 import datetime
 
 settings_file = ConfigParser.ConfigParser()
-settings_file.read('settings.txt')
+settings_file.read('settings.ini')
 
 old_date = settings_file.get('vars', 'old_date')
 file_path = settings_file.get('vars', 'folder')
@@ -44,6 +44,7 @@ def zipping_file(file_path):
                             f.close()
                         file_zip.close()
                         os.remove(file_name)
+
 
 
 
