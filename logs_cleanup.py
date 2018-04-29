@@ -58,10 +58,17 @@ def folder_exist(file_path):
         logging.error(str(e))
         return
 
-def job_log():
-    print("There will be jobs log writer")
+def log_file_exist(log_file):
+    try:
+        if not os.path.exists(log_file):
+            file(log_file,'w').close()
+    except Exception as e:
+        logging.error(str(e))
+
+
 
 def main():
+    log_file_exist(log_file)
     print("Started: " + str(datetime.datetime.now()))
     print("==========================================")
     folder_exist(file_path)
