@@ -18,15 +18,18 @@ modes = { zipfile.ZIP_DEFLATED: 'deflated',
           }
 
 def zipping_file(file_path):
-    #global old_date, file_path, current_time
+    global old_date
     try:
         for dir, subdir, files in os.walk(file_path):
             for file in files:
                 file_name = os.path.join(dir, file)
                 file_date = os.path.getmtime(file_name)
                 file_age = (int(current_time) - int(file_date)) / 86400 # get current file age
+                old_date = int(old_date)
+                if file_age < old_date:
+                    print("File age more than " + str(file_age-old_date))
                 if fnmatch.fnmatch(file_name, '*[!.zip]'):
-                    if file_age < old_date:
+                    if file_age > old_date:
                         zipfilename = file_name + '.zip'
                         file_zip = zipfile.ZipFile(zipfilename, 'w')
                         file_zip.write(file_name, compress_type=compression)
